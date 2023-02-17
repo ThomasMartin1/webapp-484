@@ -20,4 +20,4 @@
     2. item2
  * The program will ...
 
- Hi its Olivia 
+ Hi its Olivia  :)
