@@ -20,5 +20,9 @@
     2. item2
  * The program will ...
 
+<<<<<<< HEAD
  Hi its Olivia 
  Hi its Austin 
+=======
+ Hi its Olivia  :)
+>>>>>>> beda0bfae8a17c5d27510f44ebd6e1f8a8d3aeb2
