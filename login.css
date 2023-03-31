@@ -1,0 +1,72 @@
+body {
+    background-color: #FFF2DF;
+}
+button {
+    background-color: transparent;
+    border: none;
+}
+.rectangle {
+    width: 100%;
+    background-color: #ffbe5e;
+    flex-direction: row;
+    flex-basis: 10%;
+    justify-content: flex-start;
+    align-self: flex-start;
+    align-items: stretch;
+    margin-bottom: 35px;
+    font-size: 2.143rem;
+    line-height: 35px;
+    display: flex;
+  }
+  
+  .rectangle-1 {
+    height: 100%;
+    background-color: #ffbe5e;
+    border: 1px solid #aaa;
+    flex-direction: row;
+    flex-basis: 100%;
+    justify-content: flex-end;
+    align-self: flex-start;
+    align-items: center;
+    padding-right: 27px;
+    display: flex;
+  }
+  .home {
+    align-self: center;
+    margin-bottom: 5px;
+    font-size: 2.286rem;
+    line-height: 37px;
+  }
+  
+  .messaging {
+    align-self: center;
+    margin-bottom: 1px;
+    margin-left: 360px;
+  }
+  
+  .timer {
+    align-self: center;
+    margin-bottom: 2px;
+    margin-left: 29px;
+  }
+  .calendar {
+    align-self: center;
+    margin-bottom: 4px;
+    margin-left: 36px;
+  }
+  
+  .login {
+    align-self: center;
+    margin-top: 2px;
+    margin-left: 37px;
+  }
+  
+  .profile-picture{
+    width: 85px;
+    height: 87px;
+    object-fit: cover;
+    background-position: center;
+    background-size: cover;
+    align-self: center;
+    margin-left: 28px;
+  }
