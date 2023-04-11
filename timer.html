@@ -1,48 +1,67 @@
 <html>
     <head>
         <title>Timer</title>
-        <link rel="stylesheet" href="home.css">
+        <link rel="stylesheet" href="timer.css">
     </head>
 <body>
     <div class="rectangle">
         <div class="rectangle-1">
             <a href ="home.html">
-                <button type="button">
+                <button type="button" class="bar">
                     <span class="home">Home</span>
                 </button>
             </a>
 
             <a href ="messaging.html">
-                <button type="button">
+                <button type="button" class="bar">
                     <span class="messaging">Messaging</span>
                 </button>
             </a>
 
             <a href ="timer.html">
-                <button type="button">
+                <button type="button" class="bar">
                     <span class="timer">Timer</span>
                 </button>
             </a>
 
             <a href ="calendar.html">
-                <button type="button">
+                <button type="button" class="bar">
                     <span class="calendar">Calendar</span>
                 </button>
             </a>
 
             <a href ="login.html">
-                <button type="button">
+                <button type="button" class="bar">
                     <span class="login">Login</span>
                 </button>
             </a>
 
             <a href ="profile.html">
-                <button type="button">
+                <button type="button" class="bar">
                     <img class="profile-picture" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"/>
                 </button>
             </a>
 
         </div>
+    </div>
+    <div class="sidebar">
+        <span class="timer-preset">Timer Presets:</span><br>
+        <button type="button"><span class="52">52/17 Rule</span></button><br>
+        <button type="button"><span class="Pomo">Pomodoro</span></button><br>
+        <button type="button"><span class="GTD">GTD</span></button><br>
+        <form>
+            <label>Custom:</label><br>
+            <input type="text" id="wtime"><br>
+            <input type="text" id="rtime"><br>
+            <input type="submit" onclick="fill(); return false" value="Start">
+        </form>
+    </div>
+    <img class="clock-picture" src="https://freesvg.org/img/1515716861.png"/>
+    <div class="times">
+        <span id="work">Work time:</span>
+        <span id="work-time"></span>
+        <span id="rest">Rest time:</span>
+        <span id="rest-time"></span>
     </div>
 </body>
   </html>
