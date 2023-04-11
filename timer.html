@@ -91,7 +91,14 @@
                 var timeLeft = setTime - (currTime * 1000);
                 var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
                 var seconds = Math.floor((timeLeft % (1000 * 60)) /1000);
-                document.getElementById("work-time").innerHTML = minutes + ":" + seconds;
+                if (minutes < 10 && seconds < 10)
+                    document.getElementById("work-time").innerHTML = "0" + minutes + ":" + "0" + seconds;
+                else if (minutes < 10 && seconds >= 10)
+                    document.getElementById("work-time").innerHTML = "0" + minutes + ":" + seconds;
+                else if (minutes >= 10 && seconds < 10)
+                    document.getElementById("work-time").innerHTML = minutes + ":" + "0" + seconds;
+                else
+                    document.getElementById("work-time").innerHTML = minutes + ":" + seconds;
                 if (timeLeft <= 0)
                 {
                     clearInterval(x);
@@ -115,7 +122,14 @@
                 var timeLeft = setTime - (currTime * 1000);
                 var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
                 var seconds = Math.floor((timeLeft % (1000 * 60)) /1000);
-                document.getElementById("rest-time").innerHTML = minutes + ":" + seconds;
+                if (minutes < 10 && seconds < 10)
+                    document.getElementById("rest-time").innerHTML = "0" + minutes + ":" + "0" + seconds;
+                else if (minutes < 10 && seconds >= 10)
+                    document.getElementById("rest-time").innerHTML = "0" + minutes + ":" + seconds;
+                else if (minutes >= 10 && seconds < 10)
+                    document.getElementById("rest-time").innerHTML = minutes + ":" + "0" + seconds;
+                else
+                    document.getElementById("rest-time").innerHTML = minutes + ":" + seconds;
                 if (timeLeft <= 0)
                 {
                     clearInterval(x);
