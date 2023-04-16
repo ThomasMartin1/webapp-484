@@ -70,3 +70,12 @@ button {
     align-self: center;
     margin-left: 28px;
   }
+.blank-profile-picture {
+    width: 85px;
+    height: 87px;
+    object-fit: cover;
+    background-position: center;
+    background-size: cover;
+    align-self: center;
+    margin-left: 28px;
+}
