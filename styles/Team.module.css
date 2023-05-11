@@ -1,0 +1,15 @@
+#card {
+    transition: all 0.3s;
+    width: 300px;
+    border-style: solid;
+    border-width: thin;
+    border-color: transparent;
+}
+
+#card:hover {
+    
+    border-style: solid;
+    border-width: thin;
+    border-color: #0d6efd;
+    transform: scale(1.10);
+}
