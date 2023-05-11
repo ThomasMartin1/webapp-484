@@ -2,8 +2,8 @@ import logo from "../public/instastudy.png";
 import Image from "next/image";
 export default function () {
   return (
-    <div>
-      <div className="container text-center mt-2">
+    <div className="container text-center mt-5">
+      <div className="container text-center mt-1">
         <Image src={logo} alt="InstaStudy Logo"></Image>
 
         <div>
