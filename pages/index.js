@@ -13,11 +13,7 @@ export default function Home() {
       </Head>
       <Navbar />
       <main>
-        <section id="about">
-          {/*turn this section into about component*/}
-          
-          <About></About>
-        </section>
+        <About />
         <Team />
       </main>
     </>

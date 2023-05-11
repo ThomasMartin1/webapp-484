@@ -15,7 +15,7 @@ export default function Team() {
   return (
     <>
       <section id="team">
-        <div className="container">
+        <div className="container pt-5">
           <h1 className="p-4  text-center">Meet Our Team</h1>
           <div className="card-group gap-5 justify-content-center">
             {data.map((member) => {

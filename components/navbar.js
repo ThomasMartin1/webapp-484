@@ -1,7 +1,7 @@
 export default function Navbar() {
   return (
     <>
-      <header className="navbar navbar-expand-lg navbar-light bg-light p-2">
+      <header className="navbar navbar-expand-lg sticky-top navbar-light bg-light p-2">
         <a className="navbar-brand mb-0 h1">InstaStudy</a>
         <button
           className="navbar-toggler"
@@ -21,29 +21,29 @@ export default function Navbar() {
         >
           <ul className="navbar-nav">
             <li className="nav-item active">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="/">
                 Home
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#about">
+              <a className="nav-link" href="/#about">
                 About
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#team">
+              <a className="nav-link" href="/#team">
                 Our Team
               </a>
             </li>
           </ul>
           <ul className="navbar-nav">
             <li className="nav-item p-2">
-              <a className="btn btn-outline-primary" href="#">
+              <a className="btn btn-outline-primary" href="/signup">
                 Sign-up
               </a>
             </li>
             <li className="nav-item p-2">
-              <a className="btn btn-primary" href="#" role="button">
+              <a className="btn btn-primary" href="/login" role="button">
                 Login
               </a>
             </li>
