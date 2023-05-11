@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Navbar from "../components/navbar";
+import Team from "../components/team";
 import About from "../components/about";
 export default function Home() {
   return (
@@ -17,7 +18,7 @@ export default function Home() {
           
           <About></About>
         </section>
-        <section id="team">{/*turn this section into team component*/}</section>
+        <Team />
       </main>
     </>
   );
