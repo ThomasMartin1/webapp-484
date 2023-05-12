@@ -1,9 +1,13 @@
-import Navbar from "../components/navbar";
+import Link from "next/link";
 
 export default function Login() {
   return (
     <>
-      <Navbar />
+      <header className="navbar navbar-expand-lg sticky-top navbar-light bg-light p-2">
+        <Link className="navbar-brand my-2 h1" href="/">
+          InstaStudy
+        </Link>
+      </header>
       <div className="container vh-100">
         <div className="card p-4 m-4 w-50 mx-auto">
           <h1>Login</h1>
@@ -31,16 +35,16 @@ export default function Login() {
               <input id="remember-me" name="remember-me" type="checkbox" />
               <label className="ms-2">Remember me</label>
             </div>
-            <a className="ms-2" href="#">
+            <Link className="ms-2" href="#">
               Forgot Password?
-            </a>
-            <a className="ms-2" href="/signup">
+            </Link>
+            <Link className="ms-2" href="/signup">
               Don't have an account?
-            </a>
+            </Link>
           </form>
-          <a className="btn btn-primary" href="#" role="button">
+          <Link className="btn btn-primary" href="/dashboard" role="button">
             Login
-          </a>
+          </Link>
         </div>
       </div>
     </>
