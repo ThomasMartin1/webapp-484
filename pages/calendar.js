@@ -1,10 +1,11 @@
-import AccountNav from "../components/accountnav";
+import View from "../components/view";
 
 export default function Calendar() {
   return (
     <>
-      <AccountNav />
-      <div>calendar page</div>
+      <View>
+        <div>calendar page</div>
+      </View>
     </>
   );
 }

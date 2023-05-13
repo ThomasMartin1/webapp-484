@@ -1,10 +1,11 @@
-import AccountNav from "../components/accountnav";
+import View from "../components/view";
 
 export default function Profile() {
   return (
     <>
-      <AccountNav />
-      <div>profile page</div>
+      <View>
+        <div>profile page</div>
+      </View>
     </>
   );
 }

@@ -1,10 +1,11 @@
-import AccountNav from "../components/accountnav";
+import View from "../components/view";
 
 export default function Messages() {
   return (
     <>
-      <AccountNav />
-      <div>messages page</div>
+      <View>
+        <div>messages page</div>
+      </View>
     </>
   );
 }
