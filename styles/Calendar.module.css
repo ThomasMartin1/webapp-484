@@ -13,12 +13,12 @@
   }
 
   .section {
-    height: 600px;
+    height: 850px;
   }
 
   .article {
     float: right;
-    width: 70%;
+    width: 80%;
     height: 100%;
     background-color: #FFF2DF;
   }
@@ -41,6 +41,13 @@
 
   .td {
     width: 14.29%;;
+    height: 16.67%;
+  }
+
+  .dueDate {
+    font-size: small;
+    max-width: 20ch;
+    display: none;
   }
 
   .calendarTable {
