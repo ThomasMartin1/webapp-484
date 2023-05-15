@@ -18,7 +18,7 @@
 
   .article {
     float: right;
-    width: 80%;
+    width: 79%;
     height: 100%;
     background-color: #FFF2DF;
   }
@@ -31,6 +31,7 @@
 
   .calendarTable, .td, .th {
     border: 1px solid;
+    table-layout: fixed;
   }
 
   .tr {
@@ -40,14 +41,20 @@
   }
 
   .td {
-    width: 14.29%;;
+    width: 14.29%;
     height: 16.67%;
   }
 
   .dueDate {
+    width: auto;
     font-size: small;
-    max-width: 20ch;
-    display: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    padding: 1px;
+    border:#4d7adb solid 2px;
+    margin: 2px;
   }
 
   .calendarTable {
