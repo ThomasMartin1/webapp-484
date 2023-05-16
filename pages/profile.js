@@ -2,6 +2,7 @@ import View from "../components/view";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Dropdown } from "react-bootstrap";
 export default function Profile() {
   const { data: session } = useSession();
   const email = session?.user.email;
@@ -61,10 +62,6 @@ export default function Profile() {
               <div className="input-group m-auto p-2 b-1">
                 <button onClick={addCourse} className="btn btn-primary">
                   Add Class
-                </button>
-
-                <button onClick={deleteCourse} className="btn btn-danger">
-                  Delete
                 </button>
                 <input
                   type="text"
