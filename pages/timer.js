@@ -1,10 +1,14 @@
+
+import TimerComponent from "../components/timerComponent";
 import View from "../components/view";
 
 export default function Timer() {
   return (
     <>
       <View>
-        <div>timer page</div>
+        <div>
+          <TimerComponent />
+        </div>
       </View>
     </>
   );
