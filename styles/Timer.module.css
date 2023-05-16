@@ -1,17 +1,17 @@
 .clockPicture {
     position: absolute;
-    width: 482px;
-    height: 490px;
-    left: 307px;
-    top: 219px;
+    width: 442px;
+    height: 450px;
+    left: 26%;
+    top: 119px;
 }
 
 .times {
     position: absolute;
     width: 485px;
     height: 131px;
-    left: 304px;
-    top: 770px;
+    left: 25%;
+    top: 580px;
 }
 
 #work {
@@ -76,11 +76,21 @@
     background: #D9D9D9;
 }
 
-.sidebar {
+.aside {
     float: right;
-    width: 338px;
-    height: 930px;
-    left: 1102px;
-    top: 94px;
+    width: 20%;
+    height: 100%;
     background: #4d7adb;
-}
+    padding: 20px;
+  }
+
+  .section {
+    height: 650px;
+  }
+
+  .article {
+    float: right;
+    width: 79%;
+    height: 100%;
+    background-color: #FFFFFF;
+  }

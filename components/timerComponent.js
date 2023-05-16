@@ -277,50 +277,54 @@ class TimerComponent extends React.Component {
   render() {
     return (
       <>
-        <div className={styles.sidebar}>
-          <span className={styles.timer}>Timer Presets:</span>
-          <br></br>
-          <button type="button" onClick={this.set52}>
-            <span id="52">52/17 Rule</span>
-          </button>
-          <br></br>
-          <button type="button" onClick={this.set25}>
-            <span id="Pomo">Pomodoro</span>
-          </button>
-          <br></br>
-          <form name="custom" onSubmit={this.start}>
-            <label>Custom:</label>
+        <section className={styles.section}>
+          <aside className={styles.aside}>
+            <span className={styles.timer}>Timer Presets:</span>
             <br></br>
-            <input
-              type="text"
-              id="wtime"
-              name="wtime"
-              value={this.state.wTime}
-              onChange={this.handleWTime}
-            />
+            <button type="button" onClick={this.set52}>
+              <span id="52">52/17 Rule</span>
+            </button>
             <br></br>
-            <input
-              type="text"
-              id="rtime"
-              name="rtime"
-              value={this.state.rTime}
-              onChange={this.handleRTime}
-            />
+            <button type="button" onClick={this.set25}>
+              <span id="Pomo">Pomodoro</span>
+            </button>
             <br></br>
-            <input
-              type="submit"
-              id="submit"
-              value={this.state.submitState}
-            ></input>
-          </form>
-        </div>
-        <Image className={styles.clockPicture} src={logo} />
-        <div className={styles.times}>
-          <span id={styles.work}>Work time:</span>
-          <span id={styles.workTime}>{this.state.workingTime}</span>
-          <span id={styles.rest}>Rest time:</span>
-          <span id={styles.restTime}>{this.state.restingTime}</span>
-        </div>
+            <form name="custom" onSubmit={this.start}>
+              <label>Custom:</label>
+              <br></br>
+              <input
+                type="text"
+                id="wtime"
+                name="wtime"
+                value={this.state.wTime}
+                onChange={this.handleWTime}
+              />
+              <br></br>
+              <input
+                type="text"
+                id="rtime"
+                name="rtime"
+                value={this.state.rTime}
+                onChange={this.handleRTime}
+              />
+              <br></br>
+              <input
+                type="submit"
+                id="submit"
+                value={this.state.submitState}
+              ></input>
+            </form>
+          </aside>
+          <article className={styles.article}>
+            <Image className={styles.clockPicture} src={logo} />
+            <div className={styles.times}>
+              <span id={styles.work}>Work time:</span>
+              <span id={styles.workTime}>{this.state.workingTime}</span>
+              <span id={styles.rest}>Rest time:</span>
+              <span id={styles.restTime}>{this.state.restingTime}</span>
+            </div>
+          </article>
+        </section>
       </>
     );
   }
