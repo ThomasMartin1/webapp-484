@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import View from "../components/view";
 import axios from "axios";
@@ -9,13 +9,13 @@ export default function Calendar() {
   const [date, setDate] = useState("");
   const { data: session } = useSession();
   const email = session?.user.email;
+  const [items, setItems] = useState([]);
 
-  async function createItem(ev) {
-    ev.preventDefault();
-    const item = { email, type, title, date };
-    console.log("hello");
-    await axios.post("/api/items", item);
-  }
+  useEffect(() => {
+    axios.get("/api/items").then((response) => {
+      setItems(response.data);
+    });
+  }, []);
 
   return (
     <>
@@ -55,7 +55,28 @@ export default function Calendar() {
             Save
           </button>
         </form>
+        {showItems()} {/*make components and pass items */}
       </View>
     </>
   );
+
+  async function createItem(ev) {
+    ev.preventDefault();
+    const item = { email, type, title, date };
+    await axios.post("/api/items", item);
+  }
+
+  function showItems() {
+    return (
+      <>
+        {items.map((item, idx) => (
+          <div className="rounded shadow border m-3 p-2 w-25" key={idx}>
+            <div>{item.type}</div>
+            <div>{item.title}</div>
+            <div>{item.date}</div>
+          </div>
+        ))}
+      </>
+    );
+  }
 }

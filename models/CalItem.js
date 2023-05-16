@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose";
+import { model, models, Schema } from "mongoose";
 
 const CalItemSchema = new Schema({
   email: String,
@@ -7,4 +7,4 @@ const CalItemSchema = new Schema({
   date: String,
 });
 
-export const CalItem = model("CalItem", CalItemSchema);
+export const CalItem = models.CalItem || model("CalItem", CalItemSchema);
