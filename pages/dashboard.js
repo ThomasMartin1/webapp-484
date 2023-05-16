@@ -1,10 +1,14 @@
-import AccountNav from "../components/accountnav";
+import View from "../components/view";
+import { useSession } from "next-auth/react";
 
 export default function Dashboard() {
+  const { data: session } = useSession();
+
   return (
     <>
-      <AccountNav />
-      <div>User dashboard</div>
+      <View>
+        <div>{session?.user.name} dashboard</div>
+      </View>
     </>
   );
 }
