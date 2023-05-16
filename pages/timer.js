@@ -1,10 +1,15 @@
-import AccountNav from "../components/accountnav";
+
+import TimerComponent from "../components/timerComponent";
+import View from "../components/view";
 
 export default function Timer() {
   return (
     <>
-      <AccountNav />
-      <div>timer page</div>
+      <View>
+        <div>
+          <TimerComponent />
+        </div>
+      </View>
     </>
   );
 }

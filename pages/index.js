@@ -2,6 +2,7 @@ import Head from "next/head";
 import Navbar from "../components/navbar";
 import Team from "../components/team";
 import About from "../components/about";
+
 export default function Home() {
   return (
     <>
