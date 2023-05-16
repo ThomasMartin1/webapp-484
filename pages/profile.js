@@ -1,11 +1,52 @@
 import View from "../components/view";
 import { useSession } from "next-auth/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 export default function Profile() {
   const { data: session } = useSession();
+  const email = session?.user.email;
   const [courseName, setcourseName] = useState("");
+  const [days, setDays] = useState([]);
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(0);
+  const [courses, setCourses] = useState([]);
+
+  async function addCourse(ev) {
+    ev.preventDefault();
+    const course = { email, courseName, days, start, end };
+    await axios.post("api/courses", course);
+  }
+  async function deleteCourse(id) {
+    await axios.delete("api/courses?id=" + id);
+  }
+
+  function getCourses() {
+    return (
+      <>
+        {courses.map((item, idx) => (
+          <div className="rounded shadow border m-3 p-2 w-25" key={idx}>
+            <div>{item.courseName}</div>
+            <div>{item.days}</div>
+            <div>{item.start}</div>
+            <div>{item.end}</div>
+
+            <button
+              onClick={() => deleteCourse(item._id)}
+              className="btn btn-danger"
+            >
+              Delete
+            </button>
+          </div>
+        ))}
+      </>
+    );
+  }
+
+  useEffect(() => {
+    axios.get("/api/courses").then((response) => {
+      setCourses(response.data);
+    });
+  }, []);
 
   return (
     <View>
@@ -18,12 +59,21 @@ export default function Profile() {
           <div className="m-auto">
             <form>
               <div className="input-group m-auto p-2 b-1">
-                <button onClick={addClass()} className="btn btn-primary">
+                <button onClick={addCourse} className="btn btn-primary">
                   Add Class
                 </button>
-                <button onClick={deleteClass()} className="btn btn-danger">
-                  Delete Class
+
+                <button onClick={deleteCourse} className="btn btn-danger">
+                  Delete
                 </button>
+                <input
+                  type="text"
+                  id="day"
+                  className="form-control"
+                  placeholder="Class Day"
+                  value={days}
+                  onChange={(e) => setDays(e.target.value)}
+                ></input>
                 <input
                   type="text"
                   id="name"
@@ -37,8 +87,6 @@ export default function Profile() {
                   id="start"
                   className="form-control"
                   placeholder="Start time"
-                  max={23}
-                  min={0}
                   value={start}
                   onChange={(e) => setStart(e.target.value)}
                 ></input>
@@ -48,8 +96,6 @@ export default function Profile() {
                   id="end"
                   classNAme="form-control"
                   placeholder="End time"
-                  max={23}
-                  min={0}
                   value={end}
                   onChange={(e) => setEnd(e.target.value)}
                 ></input>
@@ -70,6 +116,17 @@ export default function Profile() {
                   <th scope="col">Sunday</th>
                 </tr>
               </thead>
+              <tbody>
+                <tr>
+                  <th>{getCourses()}</th>
+                  <th>{getCourses()}</th>
+                  <th>{getCourses()}</th>
+                  <th>{getCourses()}</th>
+                  <th>{getCourses()}</th>
+                  <th>{getCourses()}</th>
+                  <th>{getCourses()}</th>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>
@@ -77,8 +134,3 @@ export default function Profile() {
     </View>
   );
 }
-
-function addClass() {}
-
-function deleteClass() {}
-function getCourses() {}
