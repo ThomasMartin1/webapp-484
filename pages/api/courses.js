@@ -10,12 +10,12 @@ export default async function handler(req, res) {
   }
 
   if (method === "POST") {
-    const { email, courseName, days, start, end } = req.body;
+    const { email, courseName, day, start, end } = req.body;
 
     const response = await course.create({
       email,
       courseName,
-      days,
+      day,
       start,
       end,
     });

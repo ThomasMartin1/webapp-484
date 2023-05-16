@@ -2,95 +2,39 @@ import View from "../components/view";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Button, Card, Row, Table, Form, Col } from "react-bootstrap";
+import Link from "next/link";
+import { Button, Card, Row, Table, Col, Image } from "react-bootstrap";
 
 export default function Profile() {
   const { data: session } = useSession();
   const email = session?.user.email;
-  const [courseName, setcourseName] = useState("");
-  const [days, setDays] = useState([]);
-  const [start, setStart] = useState(0);
-  const [end, setEnd] = useState(0);
   const [courses, setCourses] = useState([]);
-
-  const [click, setClick] = useState(0);
-  const handleClick = () => setClick(click + 1);
-
-  async function addCourse(ev) {
-    ev.preventDefault();
-    const course = { email, courseName, days, start, end };
-    await axios.post("api/courses", course);
-  }
-
-  async function deleteCourse(id) {
-    await axios.delete("api/courses?id=" + id);
-  }
 
   useEffect(() => {
     axios.get("/api/courses").then((response) => {
       setCourses(response.data);
     });
-  }, [click]);
+  }, []);
 
   return (
     <View>
       <div className="container">
-        <img className="my-3 p-2" src={session?.user?.image}></img>
-
-        <Form className="mb-3">
-          <Form.Group className="mb-3" controlId="form.CourseName">
-            <Form.Label>Course name</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Course name"
-              value={courseName}
-              onChange={(e) => setcourseName(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="form.Days">
-            <Form.Label>Meeting days</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Meeting days"
-              value={days}
-              onChange={(e) => setDays(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="form.Start">
-            <Form.Label>Start time</Form.Label>
-            <Form.Control
-              type="number"
-              placeholder="Start time"
-              value={start}
-              onChange={(e) => setStart(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="form.End">
-            <Form.Label>End time</Form.Label>
-            <Form.Control
-              type="number"
-              placeholder="End time"
-              value={end}
-              onChange={(e) => setEnd(e.target.value)}
-            />
-          </Form.Group>
-        </Form>
-        <Button variant="primary" onClick={addCourse} className="rounded">
-          Add Class
-        </Button>
-        <Button
-          variant="success"
-          onClick={handleClick}
-          className=" rounded mx-2"
-        >
-          Refresh
-        </Button>
-
+        <Image className="my-3 p-2" src={session?.user?.image} />
+        <div className="d-inline mx-3 h4">{session.user.name}</div>
+        <hr></hr>
+        <div className="row justify-content-between">
+          <h1 className="col-4">Course Schedule</h1>
+          <div className="col-2">
+            <Link href={"/profile/new"} className="ms-5 btn btn-primary">
+              Add course
+            </Link>
+          </div>
+        </div>
         <Table
           striped
           bordered
           responsive
-          className="rounded shadow w-100 my-5"
+          className="rounded shadow w-100 my-3"
         >
           <thead>
             <tr className="">
@@ -122,10 +66,12 @@ export default function Profile() {
   );
 
   function filterCourses(weekDay) {
+    const list = courses;
     return (
       <>
-        {courses.map(function (course) {
-          if (course.days.includes(weekDay) && course.email === email) {
+        {list.map(function (course) {
+          console.log(course.data);
+          if (course.day === weekDay && course.email === email) {
             return (
               <div className="rounded shadow border my-3 p-2" key={course._id}>
                 <div className="mb-0 text-nowrap">{course.courseName}</div>
@@ -141,10 +87,11 @@ export default function Profile() {
   }
 
   function courseList() {
+    const list = courses;
     return (
       <>
         <Row xs={1} md={2} className="g-4">
-          {courses.map(function (course) {
+          {list.map(function (course) {
             if (course.email === email) {
               return (
                 <Col className="w-auto" key={course._id}>
@@ -156,17 +103,17 @@ export default function Profile() {
                     <Card.Header>{course.courseName}</Card.Header>
                     <Card.Body>
                       <Card.Text className="overflow-x-hidden">
-                        {course.days}
+                        {course.day}
                       </Card.Text>
                       <Card.Text>
                         {course.start} - {course.end}
                       </Card.Text>
-                      <Button
-                        variant="danger"
-                        onClick={() => deleteCourse(course._id)}
+                      <Link
+                        href={"/profile/delete/" + course._id}
+                        className="btn btn-danger"
                       >
                         Delete
-                      </Button>
+                      </Link>
                     </Card.Body>
                   </Card>
                 </Col>
