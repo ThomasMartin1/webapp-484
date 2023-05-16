@@ -3,9 +3,13 @@ import styles from "../styles/Calendar.module.css";
 import ReactDom from "react-dom";
 import React from "react";
 
-function test() {
-  const test = React.createElement("span", null, "test Assignment");
-  ReactDom.render(test, document.getElementById("2"));
+function day() {
+  const array = ["1", "2", "3", "4", "5", "6", "7"];
+  array.map((n) => {
+    var test = React.createElement("span", null, n);
+    ReactDom.render(test, document.getElementById(n));
+  });
+  return <h2>test</h2>;
 }
 
 export default function Calendar() {
@@ -14,20 +18,20 @@ export default function Calendar() {
       <AccountNav />
       <section className={styles.section}>
         <aside className={styles.aside}>
-          <button onClick={test}>create event</button>
+          <button onClick={day}>create event</button>
           <ul className={styles.asideUl}>
             <li>
-              <label for="class-1">Class 1:</label>
+              <label for="class-1">Due dates : </label>
               <input type="checkbox" name="class-1" />
             </li>
             <br />
             <li>
-              <label for="class-2">Class 2:</label>
+              <label for="class-2">Events : </label>
               <input type="checkbox" name="class-2" />
             </li>
             <br />
             <li>
-              <label for="class-3">Class 3:</label>
+              <label for="class-3">Study times: </label>
               <input type="checkbox" name="class-3" />
             </li>
             <br />
@@ -264,6 +268,62 @@ export default function Calendar() {
           </table>
         </article>
       </section>
+      <div
+        className="grid text-left"
+        style={{
+          rowGap: 0,
+          columnGap: 0,
+          columnCount: 7,
+        }}
+      >
+        <div className="border">1</div>
+        <div className="border">1</div>
+        <div className="border">1</div>
+        <div className="border">1</div>
+        <div className="border">1</div>
+        <div className="border">1</div>
+        <div className="border">7</div>
+
+        <div className="border">1</div>
+        <div className="border">2</div>
+        <div className="border">3</div>
+        <div className="border">4</div>
+        <div className="border">5</div>
+        <div className="border">6</div>
+        <div className="border">7</div>
+
+        <div className="border">1</div>
+        <div className="border">2</div>
+        <div className="border">3</div>
+        <div className="border">4</div>
+        <div className="border">5</div>
+        <div className="border">6</div>
+        <div className="border">7</div>
+
+        <div className="border">1</div>
+        <div className="border">2</div>
+        <div className="border">3</div>
+        <div className="border">4</div>
+        <div className="border">5</div>
+        <div className="border">6</div>
+        <div className="border">7</div>
+
+        <div className="border">1</div>
+        <div className="border">2</div>
+        <div className="border">3</div>
+        <div className="border">4</div>
+        <div className="border">5</div>
+        <div className="border">6</div>
+        <div className="border">7</div>
+
+        <div className="border">1</div>
+        <div className="border">2</div>
+        <div className="border">3</div>
+        <div className="border">4</div>
+        <div className="border">5</div>
+        <div className="border">6</div>
+        <div className="border">7</div>
+      </div>
     </>
   );
 }
